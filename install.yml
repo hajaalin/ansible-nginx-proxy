@@ -1,0 +1,9 @@
+---
+# Ansible playbook to install nginx-proxy role.
+
+- name: install
+  hosts: all
+  sudo: yes
+
+  roles:
+    - nginx-proxy

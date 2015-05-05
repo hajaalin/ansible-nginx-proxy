@@ -1,0 +1,9 @@
+---
+- name: install init script
+  template: src=nginx-proxy dest=/etc/init.d/nginx-proxy backup=yes mode=0755
+
+- name: create directory for certificates
+  file: path=/etc/nginx-proxy/certs state=directory
+
+- name: start nginx-proxy container
+  service: name=nginx-proxy state=restarted
