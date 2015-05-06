@@ -1,0 +1,5 @@
+---
+# vars file for roles/nginx-proxy
+
+image_name: "jwilder/nginx-proxy"
+service_name: "nginx-proxy"

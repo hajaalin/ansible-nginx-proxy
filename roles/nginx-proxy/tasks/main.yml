@@ -1,9 +1,15 @@
 ---
+# tasks file for roles/nginx-proxy
+
 - name: install init script
-  template: src=nginx-proxy dest=/etc/init.d/nginx-proxy backup=yes mode=0755
+  template: src=nginx-proxy-init-script 
+            dest=/etc/init.d/{{ service_name }} 
+            backup=yes 
+            mode=0755
 
 - name: create directory for certificates
-  file: path=/etc/nginx-proxy/certs state=directory
+  file: path=/etc/{{ service_name }}/certs state=directory
 
 - name: start nginx-proxy container
-  service: name=nginx-proxy state=restarted
+  service: name={{ service_name }} state=restarted
+
